@@ -3,7 +3,7 @@ name: GitHub Pages Deploy
 on:
   push:
     branches:
-      - main  # 현재 브랜치가 main이면 그대로, master면 master로 바꾸기
+      - main  # 브랜치 이름이 main이면 그대로, master면 master로 변경
 
 permissions:
   contents: read
@@ -24,7 +24,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: '.'  # 루트 폴더 기준 전체 업로드
+          path: '.'
 
       - name: Deploy to GitHub Pages
         id: deployment
