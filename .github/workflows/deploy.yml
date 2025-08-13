@@ -11,21 +11,19 @@ permissions:
   id-token: write
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
+      - name: Build project
+        run: |
+          # 빌드 명령어
+          echo "Build complete"
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
         with:
-          path: '.'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+          name: build-artifact
+          path: ./build/
